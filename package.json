@@ -1,0 +1,16 @@
+{
+  "name": "apidocify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kashyap",
+  "license": "ISC",
+  "description": "A lightweight npm package to automatically generate Swagger UI documentation for your Express APIs.",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-list-endpoints": "^7.1.1",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
