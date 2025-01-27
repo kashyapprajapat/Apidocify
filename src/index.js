@@ -1,7 +1,7 @@
 const swaggerUi = require('swagger-ui-express');
 const generateSwaggerSpec = require('./swagger');
 
-class Apidocs {
+class apidocify {
   constructor(app, options = {}) {
     if (!app || typeof app !== 'function') {
       throw new Error('You must provide a valid Express app instance.');
@@ -18,4 +18,4 @@ class Apidocs {
   }
 }
 
-module.exports = Apidocs;
+module.exports = apidocify;
