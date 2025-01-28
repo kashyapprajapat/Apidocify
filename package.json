@@ -1,16 +1,24 @@
 {
   "name": "apidocify",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "main": "src/index.js",
   "scripts": {
     "dev": "node src/index.js"
   },
   "author": "kashyap",
-  "license": "ISC",
+  "license": "MIT",
+  "keywords": [
+    "swagger",
+    "openapi",
+    "documentation",
+    "express"
+  ],
   "description": "A lightweight npm package to automatically generate Swagger UI documentation for your Express APIs.",
   "dependencies": {
-    "express": "^4.21.2",
     "express-list-endpoints": "^7.1.1",
     "swagger-ui-express": "^5.0.1"
+  },
+  "peerDependencies": {
+    "express": "^4.17.1"
   }
 }

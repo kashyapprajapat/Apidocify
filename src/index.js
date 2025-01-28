@@ -1,21 +1,22 @@
 const swaggerUi = require('swagger-ui-express');
 const generateSwaggerSpec = require('./swagger');
 
-class apidocify {
+class Apidocify {
   constructor(app, options = {}) {
-    if (!app || typeof app !== 'function') {
-      throw new Error('You must provide a valid Express app instance.');
-    }
-
+    this.validateInput(app);
+    
     const { docsPath = '/docs', ...swaggerOptions } = options;
-
-    // Generate the Swagger specification
     const swaggerSpec = generateSwaggerSpec(app, swaggerOptions);
-
-    // Serve Swagger UI
+    
     app.use(docsPath, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-    console.log(`API documentation available at ${docsPath}`);
+    console.log(`📚 API Documentation: http://localhost:${process.env.PORT || 3000}${docsPath}`);
+  }
+
+  validateInput(app) {
+    if (!app || typeof app.use !== 'function') {
+      throw new Error('Invalid Express app instance provided');
+    }
   }
 }
 
-module.exports = apidocify;
+module.exports = Apidocify;
