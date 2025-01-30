@@ -1,6 +1,9 @@
 const listEndpoints = require('express-list-endpoints');
 
 function generateSwaggerSpec(app, options = {}) {
+  // Determine the server URL dynamically
+  const serverUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${process.env.PORT || 3000}`;
+
   const baseSpec = {
     openapi: '3.0.0',
     info: {
@@ -10,7 +13,7 @@ function generateSwaggerSpec(app, options = {}) {
     },
     paths: {},
     components: options.components || {},
-    servers: options.servers || [{ url: 'http://localhost:3000' }],
+    servers: [{ url: serverUrl }], // Use dynamic server URL
     tags: options.tags || []
   };
 

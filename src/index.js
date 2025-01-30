@@ -9,7 +9,10 @@ class Apidocify {
     const swaggerSpec = generateSwaggerSpec(app, swaggerOptions);
     
     app.use(docsPath, swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-    console.log(`📚 API Documentation: http://localhost:${process.env.PORT || 3000}${docsPath}`);
+
+    // Log the correct documentation URL
+    const serverUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${process.env.PORT || 3000}`;
+    console.log(`📚 API Documentation: ${serverUrl}${docsPath}`);
   }
 
   validateInput(app) {
